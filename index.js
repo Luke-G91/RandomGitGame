@@ -20,11 +20,15 @@ function differenceFromAnswer(guess, answer) {
 
 function makeAGuess(answer) {
 
-  let newGuess = prompt("Make a guess: ")
-  return differenceFromAnswer(newGuess, answer)
+  let newGuess = prompt("Make a guess 1-1000: ")
+
+  if (isNaN(newGuess) || newGuess < 0 || newGuess > 1000 || !(Number.isInteger(parseInt(newGuess)))) {
+    return "Not a valid integer"
+  }
+  else {
+    return differenceFromAnswer(newGuess, answer)
+  }
 
 }
 
-
 console.log(makeAGuess(generateRandomNumber()))
-
